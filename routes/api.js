@@ -4,7 +4,10 @@ const router = express.Router()
 
 router.get('/users', (req, res) => res.send({ type: 'GET' }))
 
-router.post('/users', (req, res) => res.send({ type: 'POST' }))
+router.post('/users', (req, res) => {
+	res.send({ type: 'POST', request: req.body })
+	console.log(req.body)
+})
 
 router.put('/users/:id', (req, res) => res.send({ type: 'PUT' }))
 
